@@ -14,7 +14,7 @@ dependencies:
   # Dependency for image picker
   image_picker: ^0.6.7+12
   # Dependency for video player
-  video_player: ^0.11.1+2
+  video_player: ^2.0.0
   video_thumbnail: ^0.3.3
   flutter_video_info: ^1.2.0
 
