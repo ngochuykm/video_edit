@@ -7,6 +7,7 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  chewie: ^1.0.0
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
