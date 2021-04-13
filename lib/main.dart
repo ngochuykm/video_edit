@@ -87,12 +87,19 @@ class _MyHomePageState extends State<MyHomePage> {
     if(_video!=null){
       final videoInfo = FlutterVideoInfo();
       final videoinfo = await videoInfo.getVideoInfo(path);
+      setState(
+        ()  {
+          _videoinfo = videoinfo.duration;
+        }
+      );
       print(videoinfo.duration);
       print("data from get video info ::: " + _videoinfo.toString());
+      return videoinfo.duration;
     }
   }
   @override
   Widget build(BuildContext context) {
+    print("duration :  " + _videoinfo.toString());
     return Scaffold(
       appBar: AppBar(
         title: Text("Image / Video Picker"),
@@ -175,19 +182,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                   children: [
                     FlatButton(
-                      onPressed:() => _seekvideo(0), 
+                      onPressed:() => _seekvideo(0),
                       child: RenderFrame(_video.path,0000),
                       ),
                     FlatButton(
-                      onPressed:() => _seekvideo(1000), 
+                      onPressed:() => _seekvideo(1000),
                       child: RenderFrame(_video.path,1000),
                       ),
                     FlatButton(
-                      onPressed:() => _seekvideo(2000), 
+                      onPressed:() => _seekvideo(2000),
                       child: RenderFrame(_video.path,2000),
                       ),
                     FlatButton(
-                      onPressed:() => _seekvideo(3000), 
+                      onPressed:() => _seekvideo(3000),
                       child: RenderFrame(_video.path,3000),
                       ),
                   ],
@@ -197,7 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.only(top:10),
                 ),
                 Padding(padding: EdgeInsets.only(top: 10)),
-                Text(_videoinfo.toString()),  
+                Text(_videoinfo.toString()),
                 RaisedButton(
                   onPressed: () {
                     _pickVideoFromCamera();
@@ -245,5 +252,5 @@ class RenderFrame extends StatelessWidget{
         },
       )
     );
-  } 
+  }
 }
